@@ -38,7 +38,7 @@ import "./index.css";
 
 // const host = "http://demo.searchkit.co/api/movies"
 // const host = "http://127.0.0.1:9200/pubbuzz/pubmed/"
-const host = "https://localhost:9200/tpdb/databank/"
+const host = "http://localhost:9200/tpdb/databank/"
 const searchkit = new SearchkitManager(host)
 
 const DrugPoolItems = (props)=> {
