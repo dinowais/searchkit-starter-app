@@ -8,3 +8,12 @@ Used to start new applications which use Searchkit. Based off the popular create
 - cd searchkit-starter-app
 - yarn
 - npm start
+PUT pubbuzz/_mapping/pubmed
+{
+  "properties": {
+    "PUB_DATE": {
+      "type":     "text",
+      "fielddata": true
+    }
+  }
+}
