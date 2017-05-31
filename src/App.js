@@ -84,7 +84,8 @@ class DrugPoolItemsTable extends React.Component {
                     <td>{hit._source.country}</td>
                     <td>{hit._source.start_date}</td>
                 </tr>
-            )});
+            )
+        });
         return (
             <div style={{width: '100%', boxSizing: 'border-box', padding: 8}}>
                 <table className="sk-table sk-table-striped" style={{width: '100%', boxSizing: 'border-box'}}>
@@ -123,7 +124,8 @@ class App extends Component {
                             <RefinementListFilter id="source" title="Source" field="source" size={10} operator="OR"/>
                             <RefinementListFilter id="Therapeutic_area" title="Therapeutic Area"
                                                   field="therapeutic_area.raw" size={10} operator="OR"/>
-                            <RefinementListFilter id="Country" title="Region" field="country.raw" size={10} operator="OR"/>
+                            <RefinementListFilter id="Country" title="Region" field="country.raw" size={10}
+                                                  operator="OR"/>
                             <DynamicRangeFilter field="hcp_id" id="zipe" title="HCP ID"/>
                         </SideBar>
                         <LayoutResults>
@@ -149,7 +151,7 @@ class App extends Component {
                             </ActionBar>
                             <ViewSwitcherHits
                                 hitsPerPage={12} highlightFields={["full_name", "site_name", "therapeutic_area"]}
-                                sourceFilter={["full_name", "site_name", "therapeutic_area", "start_date", "source", "id","country","zip"]}
+                                sourceFilter={["full_name", "site_name", "therapeutic_area", "start_date", "source", "id", "country", "zip"]}
                                 hitComponents={[
                                     {key: "grid", title: "Grid", itemComponent: DrugPoolItems, defaultOption: true},
                                     {key: "list", title: "List", itemComponent: DrugPoolItemsList},
