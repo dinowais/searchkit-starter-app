@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/searchkit.iml" filepath="$PROJECT_DIR$/.idea/searchkit.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/searchkit-starter-app.iml" filepath="$PROJECT_DIR$/.idea/searchkit-starter-app.iml" />
     </modules>
   </component>
