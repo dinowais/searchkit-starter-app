@@ -124,11 +124,15 @@ class SearchHeader extends Component {
     render() {
         return (
             <TopBar>
-                <div className="my-logo">Search-Kit</div>
-                <SearchBox autofocus={true} searchOnChange={true}
-                           placeholder="Search......"
-                           searchThrottleTime="300"
-                           prefixQueryFields={["full_name", "site_name", "source", "therapeutic_area"]}/>
+                <div className="logo_iconnect">
+
+                </div>
+                <div className="search_box">
+                    <SearchBox autofocus={true} searchOnChange={true}
+                               placeholder="Search......"
+                               searchThrottleTime="300"
+                               prefixQueryFields={["full_name", "site_name", "source", "therapeutic_area"]}/>
+                </div>
             </TopBar>
         )
     }
