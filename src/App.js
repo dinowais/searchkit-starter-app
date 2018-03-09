@@ -34,12 +34,6 @@ import {
     BoolMust
 } from "searchkit";
 import "./index.css";
-{/*<link rel="stylesheet" src="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table-all.min.css">*/
-}
-{/*</link>*/
-}
-{/*import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';*/
-}
 
 // const host = "http://demo.searchkit.co/api/movies"
 // const host = "http://127.0.0.1:9200/pubbuzz/pubmed/"
@@ -74,14 +68,21 @@ const DrugPoolItemsList = (props)=> {
         </div>
     )
 }
-const RefinementOption = (props) => (
-    <div className={props.bemBlocks.option().state({selected: props.selected}).mix(props.bemBlocks.container("item"))}
-         onClick={props.onClick}>
-        <input className={props.bemBlocks.option("checkbox")}></input>
-        <div className={props.bemBlocks.option("text")}>{props.label}</div>
-        <div className={props.bemBlocks.option("count color_count")}>{props.count}</div>
-    </div>
-)
+
+// const RefinementOption = (props) => (
+//     <div className={props.bemBlocks.option().state({selected: props.selected}).mix(props.bemBlocks.container("checkbox"))}
+//          onClick={props.onClick}>
+//         {/*<div className={props.bemBlocks.item("checkbox")}>{props.checkbox}</div>*/}
+//         <div className={props.bemBlocks.option("text gull")}>{props.label}</div>
+//         <div className={props.bemBlocks.option("count")}>{props.count}</div>
+//     </div>
+// )
+// const RefinementOption = (props) => (
+//   <div className={props.bemBlocks.item().state({selected:props.selected}).mix(this.bemBlocks.container("item"))} onClick={props.onClick}>
+//     <div className={props.bemBlocks.item("label")}>{props.label}</div>
+//     <div className={props.bemBlocks.item("count")}>{props.docCount}</div>
+//   </div>
+// )
 
 class DrugPoolItemsTable extends React.Component {
 
@@ -142,18 +143,12 @@ class App extends Component {
 
                         <SideBar>
                             <RefinementListFilter id="source" title="Source" field="source" size={10} operator="OR"/>
-                            <RefinementListFilter id="Therapeutic_area" title="Therapeutic Area" itemComponent={RefinementOption}
-                            field="therapeutic_area.raw" size={10} operator="OR"/>
-                            {/*<RefinementListFilter id="Therapeutic_area" title="Therapeutic Area"*/}
-                                                  {/*field="therapeutic_area.raw" size={10} operator="OR"/>*/}
+                            <RefinementListFilter id="Therapeutic_area" title="Therapeutic Area"
+                                                  field="therapeutic_area.raw" size={10} operator="OR"/>
 
-                            <RefinementListFilter id="Country" title="Region" field="country.raw" size={10}
+                            <RefinementListFilter id="Country" title="Country" field="country.raw" size={10}
                                                   operator="OR"/>
-
-                            <RefinementListFilter id="Exclude_debarred" title="Exclude Debarred" field="exclude_debarred" size={10}
-                                                  operator="OR"/>
-                            {/*<DynamicRangeFilter field="exclude_debarred" id="exclude_debarred" title="Exclude Debarred"/>*/}
-                            <NumericRefinementListFilter id="hcp_id_nr" title="HCP ID NumericRefinementListFilter"
+                            <NumericRefinementListFilter id="hcp_id_nr" title="HCP ID"
                                                          field="hcp_id" options={[
                                 {title: "All"},
                                 {title: "up to 2000", from: 0, to: 2001},
@@ -180,11 +175,6 @@ class App extends Component {
                                         "hitstats.results_found": "{hitCount} results found"
                                     }}/>
                                     <ViewSwitcherToggle/>
-                                    <SortingSelector options={[
-                                        {label: "Relevance", field: "_score", order: "desc"},
-                                        {label: "Latest Releases", field: "start_date", order: "desc"},
-                                        {label: "Earliest Releases", field: "start_date", order: "asc"}
-                                    ]}/>
                                 </ActionBarRow>
 
                                 <ActionBarRow>
@@ -195,12 +185,11 @@ class App extends Component {
 
                             </ActionBar>
                             <ViewSwitcherHits
-                                hitsPerPage={12}
+                                hitsPerPage={20}
                                 highlightFields={["full_name", "site_name", "therapeutic_area", "name_last", "name_first"]}
                                 sourceFilter={["full_name", "name_first", "name_last", "site_name", 'year', "therapeutic_area", "start_date", "source", "id", "country", "zip"]}
                                 hitComponents={[
-                                    {key: "grid", title: "Grid", itemComponent: DrugPoolItems, defaultOption: true},
-                                    {key: "list", title: "List", itemComponent: DrugPoolItemsList},
+                                    {key: "grid", title: "Map", itemComponent: DrugPoolItems, defaultOption: true},
                                     {key: "table", title: "Table", listComponent: DrugPoolItemsTable}
                                 ]}
                                 scrollTo="body"
